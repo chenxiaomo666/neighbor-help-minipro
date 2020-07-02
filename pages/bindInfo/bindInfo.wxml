@@ -1,0 +1,17 @@
+<!--pages/bindSchoolInfo/bindSchoolInfo.wxml-->
+<view class="head">
+  <text>请填写以下信息</text>
+</view>
+
+<view class="body">
+  <view class="preInputText"> 
+    姓名：<input placeholder="例如：陈小陌" class="inputType" bindinput="nameInput"></input>
+  </view>
+  <view class="preInputText"> 
+    电话：<input placeholder="例如：13788886666" class="inputType" bindinput="phoneInput"></input>
+  </view>
+  <view class="preInputText"> 
+    地址：<textarea placeholder="例如：幸福大街13栋2单元302室" class="inputType" bindinput="addressInput"></textarea>
+  </view>
+  <button bindtap="submit">提交</button>
+</view>

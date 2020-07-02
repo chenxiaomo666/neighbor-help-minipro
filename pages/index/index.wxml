@@ -1,0 +1,8 @@
+<!--pages/index/index.wxml-->
+<view class="head">邻里汇 --社区共享互助</view>
+
+<view style="margin-top: 30px; margin-bottom: 30px;">
+  <text decode="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;项目介绍：一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字</text>
+</view>
+
+<button open-type="getUserInfo" bindgetuserinfo="getUserInfo">进入</button>
