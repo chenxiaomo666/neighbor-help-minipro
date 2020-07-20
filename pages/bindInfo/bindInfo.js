@@ -7,6 +7,11 @@ Page({
   data: {
 
   },
+  ageInput(e) {
+    this.setData({
+      age: e.detail.value
+    })
+  },
   nameInput(e) {
     this.setData({
       name: e.detail.value
@@ -36,6 +41,12 @@ Page({
         icon: "none",   //success,loading,none
         duration: 2000,
       })
+    }else if(that.data.age == null){
+      wx.showToast({
+        title: '年龄未填写！',
+        icon: "none",   //success,loading,none
+        duration: 2000,
+      })
     }else if(that.data.address == null){
       wx.showToast({
         title: '地址未填写！',
@@ -43,8 +54,9 @@ Page({
         duration: 2000,
       })
     }else{
+      console.log(that.data.openid);
       wx.request({
-        url: 'https://dev.mylwx.cn:2333/cxm/user/add',
+        url: 'https://dev.mylwx.cn:2333/cxm/user/insert',
         method:"POST",
         data: {
           name: that.data.name,
@@ -53,11 +65,15 @@ Page({
           head_img: that.data.userInfo.avatarUrl,
           sex: that.data.userInfo.gender,
           phone: that.data.phone,
+          age: that.data.age,
           address: that.data.address,
           },
         success(res){
-          console.log(res.data)
           if(res.data.code==200){
+            wx.setStorage({
+              data: res.data.user_id,
+              key: 'user_id',
+            })
             wx.navigateTo({
               url: '/pages/home/home'
             })

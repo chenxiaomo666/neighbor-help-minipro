@@ -1,4 +1,4 @@
-// pages/home/home.js
+// linlixiang/index/index.js
 Page({
 
   /**
@@ -7,11 +7,16 @@ Page({
   data: {
 
   },
-
-  release(){
-    var businessId = this.data.businessId;
+  
+  // 物品共享：1， 车位共享：2
+  messShare(){
     wx.navigateTo({
-      url: '/pages/releaseInfo/releaseInfo?businessId='+businessId,
+      url: '/linlixiang/details/details?type=1',
+    })
+  },
+  parkShare(){
+    wx.navigateTo({
+      url: '/linlixiang/details/details?type=2',
     })
   },
 
@@ -19,35 +24,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var businessId = options.businessId;
-    console.log(businessId);
-    var that = this;
-    wx.request({
-      url: 'https://dev.mylwx.cn:2333/cxm/message/list',
-      data: {
-        business_id: businessId
-      },
-      method: "GET",
-      success(res){
-        console.log(res.data.result)
-        that.setData({
-          messages: res.data.result
-        })
-      }
-    });
-    wx.request({
-      url: 'https://dev.mylwx.cn:2333/cxm/message/name',
-      data: {
-        business_id : businessId
-      },
-      method: "GET",
-      success(res){
-        that.setData({
-          businessId: businessId,
-          businessName: res.data.message_name
-        })
-      }
-    });
+
   },
 
   /**

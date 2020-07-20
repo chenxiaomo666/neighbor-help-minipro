@@ -1,0 +1,14 @@
+<view style='width:100%;min-height:100%;background-image:url("http://ch.mylwx.cn/bj.jpg");background-size:100% 100%;'>
+<view style="width: 100%; height: 30px;"></view>
+<view class="head">个人中心</view>
+
+<view wx:if="{{user_id==null}}">
+<button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="enter">请您登录</button>
+</view>
+
+<view wx:else>
+  555
+  <image src="{{user_info.head_img}}">头像</image>
+</view>
+
+</view>

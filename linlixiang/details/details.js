@@ -1,4 +1,4 @@
-// pages/home/home.js
+// linlixiang/details/details.js
 Page({
 
   /**
@@ -8,10 +8,29 @@ Page({
 
   },
 
+  clickImg(e){
+    // console.log(e);
+    var imgUrl = e.currentTarget.dataset.imgurl;
+    wx.previewImage({
+      urls: [imgUrl], //需要预览的图片http链接列表，注意是数组
+      current: '', // 当前显示图片的http链接，默认是第一个
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+
+  messInput(e){
+    console.log(e.detail.value);
+    this.setData({
+      content: e.detail.value
+    })
+  },
+
   release(){
-    var businessId = this.data.businessId;
+    var that = this;
     wx.navigateTo({
-      url: '/pages/releaseInfo/releaseInfo?businessId='+businessId,
+      url: '/linlixiang/release/release?type='+that.data.detailsType,
     })
   },
 
@@ -19,35 +38,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var businessId = options.businessId;
-    console.log(businessId);
     var that = this;
+    var detailsType = options.type;
     wx.request({
-      url: 'https://dev.mylwx.cn:2333/cxm/message/list',
+      url: 'https://dev.mylwx.cn:2333/cxm/linlixiang/list',
       data: {
-        business_id: businessId
+        share_type: detailsType
       },
       method: "GET",
       success(res){
         console.log(res.data.result)
         that.setData({
+          detailsType: detailsType,
           messages: res.data.result
         })
       }
-    });
-    wx.request({
-      url: 'https://dev.mylwx.cn:2333/cxm/message/name',
-      data: {
-        business_id : businessId
-      },
-      method: "GET",
-      success(res){
-        that.setData({
-          businessId: businessId,
-          businessName: res.data.message_name
-        })
-      }
-    });
+    })
   },
 
   /**

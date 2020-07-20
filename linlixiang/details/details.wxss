@@ -1,3 +1,25 @@
+/* linlixiang/details/details.wxss */
+.head {
+  color: black;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.inputType{
+  width: 90%;
+  /* background-color: white; */
+  height: 30px;
+  /* margin-top: 10px; */
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 3px;
+  font-size: 12px;
+  padding-left: 6px;
+  border: 1px solid black;
+}
+
 .release{
   position:fixed;
   bottom: 30px;
@@ -9,14 +31,6 @@
 .release image{
   width: 55px;
   height: 35px;
-}
-
-.head {
-  color: black;
-  font-size: 20px;
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
 }
 
 .body {
@@ -52,8 +66,18 @@
   margin-left: 10px;
 }
 
-.body .item .title{
+.body .item .content{
   font-size: 14px;
   padding: 10px;
 }
 
+.body .item .content text {
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.body .item .content image {
+  width: 80px;
+  height: 80px;
+  vertical-align: middle;
+}

@@ -1,2 +1,21 @@
 <!--pages/home/home.wxml-->
-<text>pages/home/home.wxml</text>
+<view class="head">{{businessName}}</view>
+
+<view class="body">
+      <view class="item" wx:for="{{messages}}" wx:key="name">
+            <view class="user-info">
+                  <image src="{{item.user_info.head_img}}"></image>
+                  <text class="user-name">{{item.user_info.name}}</text>
+                  <text>{{item.time}}</text>
+            </view>
+            <view class="title">
+                  <view>{{item.title}}</view>
+                  <view>{{item.content}}</view>
+            </view>
+      </view>
+</view>
+
+<view bindtap='release' class="release">
+      <image src="http://ch.mylwx.cn/release.png"></image>
+</view>
+

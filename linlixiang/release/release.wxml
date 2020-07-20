@@ -1,0 +1,32 @@
+<view wx:if="{{detailsType==1}}">
+  <view class="head">物品共享</view>
+  <input placeholder="请输入物品名字" class="inputType" bindinput="messNameInput"></input>
+
+</view>
+
+<view wx:if="{{detailsType==2}}">
+  <view class="head">车位共享</view>
+  <view class="page">  
+   <!-- 时间段 -->  
+    <view class="picker_group">  
+      <picker mode="date" value="{{date}}"  end="{{date2}}" bindchange="bindDateChange">  
+        <view class="picker">  
+          {{date}}  
+        </view>  
+      </picker>  
+      至  
+      <picker mode="date" value="{{date2}}" start="{{date}}" end="2050-01-01" bindchange="bindDateChange2">  
+        <view class="picker">  
+          {{date2}}  
+        </view>  
+      </picker>        
+    </view>  
+  </view>  
+</view>
+
+<view class="picture">
+  <image src="{{imgPath}}"></image>
+</view>
+<button bindtap="chooseImage">选择图片</button>
+
+<button bindtap="submit" style="margin-top: 20px;">提交</button>

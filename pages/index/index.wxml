@@ -1,8 +1,14 @@
-<!--pages/index/index.wxml-->
+<view style='width:100%;min-height:100%;background-image:url("http://ch.mylwx.cn/bj.jpg");background-size:100% 100%;'>
+<view style="width: 100%; height: 30px;"></view>
 <view class="head">邻里汇 --社区共享互助</view>
 
-<view style="margin-top: 30px; margin-bottom: 30px;">
+<!-- <view class="contain">
   <text decode="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;项目介绍：一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字</text>
-</view>
+</view> -->
 
-<button open-type="getUserInfo" bindgetuserinfo="getUserInfo">进入</button>
+
+<button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="enter">功能</button>
+
+<!-- <button one-type="getUserInfo" bindgetuserinfo="getUserInfo" class="enter">进入</button> -->
+
+</view>

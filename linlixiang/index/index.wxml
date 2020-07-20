@@ -1,0 +1,6 @@
+<!--linlixiang/index/index.wxml-->
+<!-- <view class="contain"> -->
+<view class="head">邻里享</view>
+  <view class="share" bindtap="messShare">物品共享</view>
+  <view class="share" bindtap="parkShare">车位共享</view>
+<!-- </view> -->

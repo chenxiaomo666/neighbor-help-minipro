@@ -1,0 +1,12 @@
+<view class="head">
+  <text>发布消息</text>
+</view>
+
+<view class="preInputText"> 
+  标题：<input placeholder="title" class="inputType" bindinput="titleInput"></input>
+</view>
+<view class="preInputText"> 
+  内容：<textarea placeholder="content" class="inputType" bindinput="contentInput"></textarea>
+</view>
+<button bindtap="submit">提交</button>
+

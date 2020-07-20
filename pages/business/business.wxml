@@ -1,0 +1,19 @@
+<view style='width:100%;min-height:100%;background-image:url("http://ch.mylwx.cn/bj.jpg");background-size:100% 100%;'>
+  <view class="head">邻里汇</view>
+
+  <view style="background-color: #00FFFF;" class="business" bindtap="linlixiang" data-businessId="1">邻里享</view>
+  <view style="background-color: #00FFFF;" class="business" bindtap="enterBusiness" data-businessId="2">邻里约</view>
+  <view style="background-color: #00FFFF;" class="business" bindtap="enterBusiness" data-businessId="3">邻里代</view>
+  <view style="background-color: #00FFFF;" class="business" bindtap="enterBusiness" data-businessId="4">邻里教</view>
+  <view style="background-color: #00FFFF;" class="business" bindtap="enterBusiness" data-businessId="5">邻里宠</view>
+  <view style="background-color: #00FFFF;" class="business" bindtap="enterBusiness" data-businessId="6">邻里务</view>
+  <view style="background-color: #00FFFF;" class="business" bindtap="enterBusiness" data-businessId="7">邻里团</view>
+  <view style="background-color: #00FFFF;" class="business" bindtap="enterBusiness" data-businessId="8">邻里帮</view>
+  <view style="background-color: #00FFFF;" class="business" bindtap="enterBusiness" data-businessId="9">邻里抗灾</view>
+
+  <!-- <view class="bottom">
+    <view style="background-color: #00FFFF;" class="bottom-min">听党指挥</view>
+    <view style="background-color: #00FFFF;" class="bottom-min">能打胜仗</view>
+    <view style="background-color: #00FFFF;" class="bottom-min">作风优良</view>
+  </view> -->
+</view>

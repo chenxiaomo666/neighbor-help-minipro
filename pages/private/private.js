@@ -1,8 +1,6 @@
-// pages/index/index.js
-const app = getApp()
-
+// pages/private/private.js
 Page({
-  
+
   /**
    * 页面的初始数据
    */
@@ -11,10 +9,10 @@ Page({
   },
 
   getUserInfo(e){
-    console.log("Enter the system");
+    console.log("啊，脑袋，你竟然还没登陆");
     var that = this;
-    app.globalData.userInfo = e.detail.userInfo;
-    console.log(app.globalData.userInfo);
+    // app.globalData.userInfo = e.detail.userInfo;
+    // console.log(app.globalData.userInfo);
     wx.login({
       success(res) {
         var code = res.code;
@@ -29,12 +27,24 @@ Page({
             console.log(res.data)
             var isBind = res.data.is_bind;
             if(isBind){
+              var user_id = res.data.user_id
               wx.setStorage({
-                data: res.data.user_id,
+                data: user_id,
                 key: 'user_id',
               })
-              wx.navigateTo({
-                url: '/pages/business/business'
+              wx.request({
+                url: 'https://dev.mylwx.cn:2333/cxm/user/info',
+                method: "GET",
+                data: {
+                  user_id: user_id
+                },
+                success(res){
+                  console.log(res.data.result);
+                  that.setData({
+                    user_info: res.data.result,
+                    user_id: user_id
+                  })
+                }
               })
             }
             else{
@@ -53,7 +63,36 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
+    var user_id = null;
+    wx.getStorage({
+      key: 'user_id',
+      success (res) {
+        user_id = res.data
+        // that.setData({
+        //   user_id: user_id
+        // })
+      }
+    })
+    console.log(user_id);
+    console.log(user_id!= null)
     
+    if(user_id != null){
+      wx.request({
+        url: 'https://dev.mylwx.cn:2333/cxm/user/info',
+        method: "GET",
+        data: {
+          user_id: user_id
+        },
+        success(res){
+          console.log(res.data.result);
+          that.setData({
+            user_info: res.data.result,
+            // user_id: user_id
+          })
+        }
+      })
+    }
   },
 
   /**
