@@ -1,0 +1,29 @@
+
+  <view class="head">{{typeName}}</view>
+
+  <view wx:if="{{type==0}}">
+    <input placeholder="请输入团体名称" class="inputType" bindinput="oneInput"></input>
+    <input placeholder="发布目的" class="inputType" bindinput="twoInput"></input>
+    <textarea placeholder="其他要求以及说明" class="inputAreaType" bindinput="threeInput"></textarea>
+  </view>
+
+  <view wx:if="{{type==1}}">
+    <input placeholder="请输入目的地" class="inputType" bindinput="oneInput"></input>
+    <textarea placeholder="发布目的" class="inputType" bindinput="twoInput"></textarea>
+    <textarea placeholder="路线规划、预算规划等信息说明" class="inputAreaType" bindinput="threeInput"></textarea>
+  </view>
+
+  <view wx:if="{{type==2}}">
+    <input placeholder="请输入节日名称" class="inputType" bindinput="oneInput"></input>
+    <textarea placeholder="发布目的" class="inputType" bindinput="twoInput"></textarea>
+    <textarea placeholder="时间地点预算规模等信息说明" class="inputAreaType" bindinput="threeInput"></textarea>
+  </view>
+
+  
+
+<view class="picture">
+  <image src="{{imgPath}}"></image>
+</view>
+<button bindtap="chooseImage">选择图片</button>
+
+<button bindtap="submit" style="margin-top: 20px;">提交</button>

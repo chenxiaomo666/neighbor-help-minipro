@@ -1,0 +1,10 @@
+<view style='width:100%;min-height:100%;background-image:url("http://ch.mylwx.cn/bj.jpg");background-size:100% 100%;'>
+<view style="width: 100%; height: 30px;"></view>
+<view class="head">邻里约</view>
+<view style="width: 100%; height: 15px;"></view>
+
+<view bindtap="activity" data-type="0" class="left">兴趣团体</view>
+<view bindtap="activity" data-type="1" class="right">游玩组队</view>
+<view bindtap="activity" data-type="2" class="left">节日活动</view>
+
+</view>

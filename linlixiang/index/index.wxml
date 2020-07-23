@@ -1,6 +1,13 @@
-<!--linlixiang/index/index.wxml-->
-<!-- <view class="contain"> -->
+<!-- 
 <view class="head">邻里享</view>
   <view class="share" bindtap="messShare">物品共享</view>
   <view class="share" bindtap="parkShare">车位共享</view>
-<!-- </view> -->
+ -->
+
+<view style='width:100%;min-height:100%;background-image:url("http://ch.mylwx.cn/bj.jpg");background-size:100% 100%;'>
+<view style="width: 100%; height: 30px;"></view>
+<view class="head">邻里享</view>
+<view style="width: 100%; height: 15px;"></view>
+  <view class="share" bindtap="messShare">物品共享</view>
+  <view class="share" bindtap="parkShare">车位共享</view>
+</view>

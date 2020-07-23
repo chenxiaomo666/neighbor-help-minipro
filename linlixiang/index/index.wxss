@@ -1,7 +1,14 @@
-/* .contain{
-  width: 80%;
-  margin-left: 10%;
-} */
+page{
+  height:100%
+  }
+
+.head {
+  color: black;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  /* margin-top: 30px; */
+}
 
 .share{
   display: flex;
@@ -12,13 +19,7 @@
   width: 60%;
   height: 180px;
   border-radius: 90px;
-  border: 2px solid #00FFFF;
+  border: 1px solid #abbcbc;
+  background-color: #00FFFF;
 }
 
-.head {
-  color: black;
-  font-size: 20px;
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-}

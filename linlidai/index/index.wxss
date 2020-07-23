@@ -1,0 +1,38 @@
+/* pages/index/index.wxss */
+page{
+  height:100%
+  }
+
+.head {
+  color: black;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  /* margin-top: 30px; */
+}
+
+.left{
+  width: 50%;
+  height: 70px;
+  margin-left: 10%;
+  border-radius: 40px;
+  border: 1px solid #abbcbc;
+  background-color: #00FFFF;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;  
+  align-items: center;
+}
+
+.right{
+  width: 50%;
+  height: 70px;
+  margin-left: 40%;
+  border: 1px solid #abbcbc;
+  border-radius: 40px;
+  background-color: #00FFFF;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;  
+  align-items: center;
+}

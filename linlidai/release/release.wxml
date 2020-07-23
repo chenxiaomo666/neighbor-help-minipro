@@ -1,0 +1,12 @@
+
+  <view class="head">{{typeName}}</view>
+  <input placeholder="请输入目的地" class="inputType" bindinput="addressInput"></input>
+  <input placeholder="取货方式" class="inputType" bindinput="getMethodInput"></input>
+  <textarea placeholder="所需货物清单" class="inputAreaType" bindinput="massListInput"></textarea>
+
+<view class="picture">
+  <image src="{{imgPath}}"></image>
+</view>
+<button bindtap="chooseImage">选择图片</button>
+
+<button bindtap="submit" style="margin-top: 20px;">提交</button>

@@ -1,13 +1,6 @@
-<view wx:if="{{detailsType==1}}">
-  <view class="head">物品共享</view>
-  <input placeholder="请输入物品名字搜索" class="inputType" bindinput="messInput"></input>
-</view>
+<view class="head">{{typeName}}</view>
+<input placeholder="请输入物品名字搜索" class="inputType" bindinput="messInput"></input>
 
-
-<view wx:if="{{detailsType==2}}">
-  <view class="head">车位共享</view>
-
-</view>
 
 <view class="body">
       <view class="item" wx:for="{{messages}}" wx:key="name">
@@ -18,8 +11,8 @@
             </view>
             <view class="content">
                   <image src="{{item.img_url}}" bindtap="clickImg" data-imgUrl="{{item.img_url}}"></image>
-                  <text>{{item.mess_name}}</text>
-                  <text style="font-color: red;">详情</text>
+                  <text>{{item.one_input}}</text>
+                  <text data-id="{{item.id}}" bindtap="specific" style="color: red;">详情</text>
             </view>
       </view>
 </view>

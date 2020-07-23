@@ -1,0 +1,83 @@
+/* linlixiang/details/details.wxss */
+.head {
+  color: black;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.inputType{
+  width: 90%;
+  /* background-color: white; */
+  height: 30px;
+  /* margin-top: 10px; */
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 3px;
+  font-size: 12px;
+  padding-left: 6px;
+  border: 1px solid black;
+}
+
+.release{
+  position:fixed;
+  bottom: 30px;
+  display:flex;
+  width:100%;
+  justify-content:center;
+}
+
+.release image{
+  width: 55px;
+  height: 35px;
+}
+
+.body {
+  background-color: #f0f0f0;
+}
+
+.body .item:first-child{
+  padding-top: 0px;
+}
+
+.body .item{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 10px;
+  background-color: #fff;
+}
+
+.body .item .user-info {
+  height: 30px;
+  padding-left: 10px;
+  padding-top: 5px;
+}
+
+.body .item .user-info image {
+  width: 30px;
+  height: 30px;
+  border-radius: 36px;
+  vertical-align: middle;
+}
+
+.body .item .user-info text {
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.body .item .content{
+  font-size: 14px;
+  padding: 10px;
+}
+
+.body .item .content text {
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.body .item .content image {
+  width: 80px;
+  height: 80px;
+  vertical-align: middle;
+}

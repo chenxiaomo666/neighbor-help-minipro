@@ -2,13 +2,34 @@
 <view style="width: 100%; height: 30px;"></view>
 <view class="head">个人中心</view>
 
-<view wx:if="{{user_id==null}}">
+<view wx:if="{{user_id==''}}">
 <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="enter">请您登录</button>
 </view>
 
-<view wx:else>
-  555
-  <image src="{{user_info.head_img}}">头像</image>
+<view wx:else style="margin-left:10px; margin-right:10px;">
+  <view style="display: flex; align-items: center; margin-top:30px;">
+    <text>头像：</text>
+    <image style="width:50px; height:50px;" src="{{user_info.head_img}}">头像</image>
+  </view>
+  <view>
+    <text>姓名：</text>
+    <text>{{user_info.name}}</text>
+  </view>
+  <view>
+    <text>手机号：</text>
+    <text>{{user_info.phone}}</text>
+  </view>
+  <view>
+    <text>年龄：</text>
+    <text>{{user_info.age}}</text>
+  </view>
+  <view>
+    <text>地址：</text>
+    <text>{{user_info.address}}</text>
+  </view>
+
+  <button style="margin-top:30px;" bindtap="changeInfo">修改信息</button>
+
 </view>
 
 </view>

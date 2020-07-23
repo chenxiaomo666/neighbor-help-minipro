@@ -1,4 +1,4 @@
-// pages/business/business.js
+// linliyue/specific/specific.js
 Page({
 
   /**
@@ -8,30 +8,24 @@ Page({
 
   },
 
-  linlixiang(){
-    wx.navigateTo({
-      url: '/linlixiang/index/index'
-    })
-  },
-
-  linlidai(){
-    wx.navigateTo({
-      url: '/linlidai/index/index'
-    })
-  },
-
-  enterBusiness(e){
-    var businessId = e.currentTarget.dataset.businessid;
-    wx.navigateTo({
-      url: '/pages/home/home?businessId='+businessId
-    })
-  },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    var message_id = options.message_id;
+    wx.request({
+      url: 'https://dev.mylwx.cn:2333/cxm/linliyue/single',
+      method: "GET",
+      data: {
+        message_id: message_id
+      },
+      success(res){
+        that.setData({
+          message: res.data.result
+        })
+      }
+    })
   },
 
   /**

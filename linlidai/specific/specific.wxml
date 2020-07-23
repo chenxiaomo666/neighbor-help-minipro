@@ -1,0 +1,46 @@
+
+<view style="width: 100%; height: 30px;"></view>
+<view class="head">详情信息</view>
+  <view style="display: flex; align-items: center; margin-top:30px; margin-bottom:0px;">
+    <text>头像：</text>
+    <image style="width:50px; height:50px;" src="{{message.user_info.head_img}}">头像</image>
+  </view>
+  <view class="info">
+    <text>发布时间：</text>
+    <text>{{message.time}}</text>
+  </view>
+  <view class="info">
+    <text>目的地：</text>
+    <text>{{message.address}}</text>
+  </view>
+  <view class="info">
+    <text>发布者姓名：</text>
+    <text>{{message.user_info.name}}</text>
+  </view>
+  <view class="info">
+    <text>发布者手机号：</text>
+    <text>{{message.user_info.phone}}</text>
+  </view>
+  <view class="info">
+    <text>信誉值：</text>
+    <text>4</text>  
+  </view>
+  <view class="info">
+    <text>地址：</text>
+    <text>{{message.user_info.address}}</text>
+  </view>
+  <view class="info">
+    <text>取货方式：</text>
+    <text>{{message.get_method}}</text>
+  </view>
+  <view class="info">
+    <text>所需物品清单：</text>
+    <text>{{message.mass_list}}</text>
+  </view>
+
+  <view class="bottom">
+    <view class="left">聊天</view>
+    <view class="right">接单</view>
+  </view>
+
+

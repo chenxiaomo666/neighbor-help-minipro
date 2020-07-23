@@ -8,6 +8,15 @@ Page({
 
   },
 
+  changeInfo(){
+    var userInfoStr = JSON.stringify(this.data.user_info);
+    console.log(userInfoStr);
+    console.log(this.data.user_info);
+    wx.navigateTo({
+      url: '/pages/bindInfo/bindInfo?userInfo='+userInfoStr+'&isChange='+1, // 进去绑定信息页面
+    })
+  },
+
   getUserInfo(e){
     console.log("啊，脑袋，你竟然还没登陆");
     var that = this;
@@ -64,20 +73,13 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    var user_id = null;
-    wx.getStorage({
-      key: 'user_id',
-      success (res) {
-        user_id = res.data
-        // that.setData({
-        //   user_id: user_id
-        // })
-      }
+    var user_id = wx.getStorageSync('user_id');  // 如果没有该关键字，对应返回为空字符串""
+
+    that.setData({
+      user_id: user_id
     })
-    console.log(user_id);
-    console.log(user_id!= null)
     
-    if(user_id != null){
+    if(user_id != ""){
       wx.request({
         url: 'https://dev.mylwx.cn:2333/cxm/user/info',
         method: "GET",
@@ -85,7 +87,6 @@ Page({
           user_id: user_id
         },
         success(res){
-          console.log(res.data.result);
           that.setData({
             user_info: res.data.result,
             // user_id: user_id
@@ -106,7 +107,24 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var that = this;
+    console.log(that.data.user_id);
+    console.log(that.data.user_id=='');
+    if(that.data.user_id!=""){
+      wx.request({
+        url: 'https://dev.mylwx.cn:2333/cxm/user/info',
+        method: "GET",
+        data: {
+          user_id: that.data.user_id
+        },
+        success(res){
+          that.setData({
+            user_info: res.data.result,
+            // user_id: user_id
+          })
+        }
+      })
+    }
   },
 
   /**

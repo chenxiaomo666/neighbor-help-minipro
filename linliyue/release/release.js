@@ -1,79 +1,69 @@
-// linlixiang/release/release.js
+// linliyue/release/release.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    date: '2018-01-01',//默认起始时间  
-    date2: '2018-01-24',//默认结束时间 
-  },
-
-  bindDateChange(e) {
-    var that = this;
-    console.log(e.detail.value)
-    that.setData({
-      date: e.detail.value,
-    })
-  },
-  bindDateChange2(e) {
-    var that = this;
-    that.setData({
-      date2: e.detail.value,
-    })
 
   },
 
-  messNameInput(e){
+  oneInput(e){
     console.log(e.detail.value);
     this.setData({
-      messName: e.detail.value
+      oneInput: e.detail.value
+    })
+  },
+  twoInput(e){
+    console.log(e.detail.value);
+    this.setData({
+      twoInput: e.detail.value
+    })
+  },
+  threeInput(e){
+    console.log(e.detail.value);
+    this.setData({
+      threeInput: e.detail.value
     })
   },
 
   submit(){
     var that = this;
-    console.log("提交！啊，脑袋！");
-    if(that.data.detailsType==1){   // 物品共享
-      if(that.data.messName==null){
-        wx.showToast({
-          title: '物品名字未填写！',
-          icon: "none",   //success,loading,none
-          duration: 2000,
-        })
-      }else{
-        wx.request({
-          url: 'https://dev.mylwx.cn:2333/cxm/linlixaing/release',
-          data: {
-            user_id: that.data.user_id,
-            mess_name: that.data.messName,
-            img_path: that.data.imgPath,
-            share_name: "物品共享"
-          },
-          method: "POST",
-          success(res){
-            console.log(res.data);
-            wx.navigateTo({
-              url: '/linlixiang/details/details?type='+that.data.detailsType,
-            })
-          }
-        })
-      }
-    }else{   // 车位共享
+    if(that.data.oneInput==null){
+      wx.showToast({
+        title: '第一行未填写！',
+        icon: "none",   //success,loading,none
+        duration: 2000,
+      })
+    }else if(that.data.twoInput==null){
+      wx.showToast({
+        title: '第二行未填写！',
+        icon: "none",   //success,loading,none
+        duration: 2000,
+      })
+    }else if(that.data.threeInput==null){
+      wx.showToast({
+        title: '第三行未填写！',
+        icon: "none",   //success,loading,none
+        duration: 2000,
+      })
+    }else{
       wx.request({
-        url: 'https://dev.mylwx.cn:2333/cxm/linlixaing/release',
-        data: {
-          user_id: that.data.user_id,
-          start_time: that.data.date,
-          end_time: that.data.date2,
-          img_path: that.data.imgPath,
-          share_name: "车位共享"
-        },
+        url: 'https://dev.mylwx.cn:2333/cxm/linliyue/release',
         method: "POST",
+        data: {
+          one_input: that.data.oneInput,
+          two_input: that.data.twoInput,
+          three_input: that.data.threeInput,
+          title: that.data.typeName,
+          img_path: that.data.imgPath,
+          user_id: that.data.user_id,
+          type_id: that.data.type
+        },
         success(res){
           console.log(res.data);
           wx.navigateTo({
-            url: '/linlixiang/details/details?type='+that.data.detailsType,
+            url: '/linliyue/details/details?type='+that.data.type,
           })
         }
       })
@@ -109,23 +99,16 @@ Page({
     })
   },
 
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var detailsType = options.type;
-    var that = this;
-
-    wx.getStorage({
-      key: 'user_id',
-      success (res) {
-        console.log(res.data)
-        that.setData({
-          user_id: res.data,
-          detailsType: detailsType
-        })
-      }
+    var type = options.type;
+    var typeName = options.typeName;
+    this.setData({
+      type: type,
+      typeName: typeName,
+      user_id: wx.getStorageSync('user_id')
     })
   },
 

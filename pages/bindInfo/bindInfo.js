@@ -22,11 +22,95 @@ Page({
       phone: e.detail.value
     })
   },
+  verifiesInput(e){
+    this.setData({
+      verifies: e.detail.value
+    })
+  },
   addressInput(e) {
     this.setData({
       address: e.detail.value
     })
   },
+
+  changeImg(){
+    var that = this;
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success (res) {
+        // tempFilePath可以作为img标签的src属性显示图片
+        const tempFilePaths = res.tempFilePaths
+        that.setData({
+          headImg: res.tempFilePaths[0],
+          imgChange: 1
+        })
+        console.log(res.tempFilePaths[0]);
+        wx.uploadFile({
+          url: 'https://dev.mylwx.cn:5000/cxm/upload', 
+          filePath: tempFilePaths[0],
+          name: 'file',
+          formData:{
+            'user': 'test'
+          },
+          success: function(res){
+            var data = res.data
+            // console.log(res.data);
+          }
+        })
+      }
+    })
+  },
+
+  submitChange(){
+    var that = this;
+    var name = null;
+    var phone = null;
+    var age = null;
+    var address = null;
+    
+    if(that.data.name == null){
+      name = that.data.userInfo.name;
+    }else{
+      name = that.data.name
+    }
+    if(that.data.phone == null){
+      phone = that.data.userInfo.phone;
+    }else{
+      phone = that.data.phone
+    }
+    if(that.data.age == null){
+      age = that.data.userInfo.age;
+    }else{
+      age = that.data.age
+    }
+    if(that.data.address == null){
+      address = that.data.userInfo.address;
+    }else{
+      address = that.data.address
+    }
+    wx.request({
+      url: 'https://dev.mylwx.cn:2333/cxm/user/upsert',
+      method: "POST",
+      data: {
+        user_id: that.data.userInfo.user_id,
+        name: name,
+        phone: phone,
+        age: age,
+        address: address,
+        head_img: that.data.headImg,
+        img_change: that.data.imgChange
+      },
+      success(res){
+        console.log(res.data);
+        wx.switchTab({
+          url: '/pages/private/private',
+        })
+      }
+    })
+  },
+
   submit() {
     var that = this;
     if(that.data.name == null){
@@ -47,6 +131,12 @@ Page({
         icon: "none",   //success,loading,none
         duration: 2000,
       })
+    }else if(that.data.verifies == null){
+      wx.showToast({
+        title: '验证码未填写！',
+        icon: "none",   //success,loading,none
+        duration: 2000,
+      })
     }else if(that.data.address == null){
       wx.showToast({
         title: '地址未填写！',
@@ -56,7 +146,7 @@ Page({
     }else{
       console.log(that.data.openid);
       wx.request({
-        url: 'https://dev.mylwx.cn:2333/cxm/user/insert',
+        url: 'https://dev.mylwx.cn:2333/cxm/user/upsert',
         method:"POST",
         data: {
           name: that.data.name,
@@ -66,6 +156,7 @@ Page({
           sex: that.data.userInfo.gender,
           phone: that.data.phone,
           age: that.data.age,
+          verifies: that.data.verifies,
           address: that.data.address,
           },
         success(res){
@@ -88,9 +179,13 @@ Page({
   onLoad: function (options) {
     var userInfo = JSON.parse(options.userInfo);
     var openid = options.openid;
+    var isChange = options.isChange;
     this.setData({
       userInfo : userInfo,
       openid : openid,
+      isChange: isChange,
+      headImg: userInfo.head_img,
+      imgChange: 0
     });
   },
 

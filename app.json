@@ -1,5 +1,6 @@
 {
   "pages":[
+    "linliyue/index/index",
     "pages/index/index",
     "pages/news/news",
     "pages/bindInfo/bindInfo",
@@ -11,7 +12,14 @@
     "pages/logs/logs",
     "linlixiang/index/index",
     "linlixiang/details/details",
-    "linlixiang/release/release"
+    "linlixiang/release/release",
+    "linlidai/index/index",
+    "linlidai/release/release",
+    "linlidai/details/details",
+    "linlidai/specific/specific",
+    "linliyue/release/release",
+    "linliyue/details/details",
+    "linliyue/specific/specific"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -25,19 +33,27 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "首页"
+        "text": "首页",
+        "selectedIconPath": "/pages/img/nh_1.png",
+        "iconPath": "/pages/img/nh_1.png"
       },
       {
         "pagePath": "pages/dynamic/dynamic",
-        "text": "邻里动态"
+        "text": "邻里动态",
+        "selectedIconPath": "/pages/img/nh_2.png",
+        "iconPath": "/pages/img/nh_2.png"
       },
       {
         "pagePath": "pages/news/news",
-        "text": "最近消息"
+        "text": "最近消息",
+        "selectedIconPath": "/pages/img/nh_3.png",
+        "iconPath": "/pages/img/nh_3.png"
       },
       {
         "pagePath": "pages/private/private",
-        "text": "个人中心"
+        "text": "个人中心",
+        "selectedIconPath": "/pages/img/nh_4.png",
+        "iconPath": "/pages/img/nh_4.png"
       }
     ]
   },

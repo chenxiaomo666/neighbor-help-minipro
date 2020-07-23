@@ -1,0 +1,12 @@
+<view style='width:100%;min-height:100%;background-image:url("http://ch.mylwx.cn/bj.jpg");background-size:100% 100%;'>
+<view style="width: 100%; height: 30px;"></view>
+<view class="head">邻里代</view>
+<view style="width: 100%; height: 15px;"></view>
+
+<view bindtap="purchase" data-type="0" class="left">蔬菜代购</view>
+<view bindtap="purchase" data-type="1" class="right">药品代购</view>
+<view bindtap="purchase" data-type="2" class="left">超市代购</view>
+<view bindtap="purchase" data-type="3" class="right">海外代购</view>
+<view bindtap="purchase" data-type="4" class="left">其他代购</view>
+
+</view>

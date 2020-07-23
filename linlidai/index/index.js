@@ -1,4 +1,4 @@
-// pages/business/business.js
+// linlidai/index/index.js
 Page({
 
   /**
@@ -8,22 +8,11 @@ Page({
 
   },
 
-  linlixiang(){
+  purchase(e){
+    console.log(e);
+    var type = e.currentTarget.dataset.type;
     wx.navigateTo({
-      url: '/linlixiang/index/index'
-    })
-  },
-
-  linlidai(){
-    wx.navigateTo({
-      url: '/linlidai/index/index'
-    })
-  },
-
-  enterBusiness(e){
-    var businessId = e.currentTarget.dataset.businessid;
-    wx.navigateTo({
-      url: '/pages/home/home?businessId='+businessId
+      url: '/linlidai/details/details?type='+type,
     })
   },
 
