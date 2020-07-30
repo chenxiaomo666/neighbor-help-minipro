@@ -1,2 +1,14 @@
-<!--pages/news/news.wxml-->
-<text>pages/news/news.wxml</text>
+<view style='width:100%;min-height:100%;background-image:url("http://ch.mylwx.cn/bj.jpg");background-size:100% 100%;'>
+<view style="width: 100%; height: 30px;"></view>
+<view class="head">最近消息</view>
+
+<view wx:if="{{user_id==''}}">
+  <button><button style="margin-top:300px;" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="enter">登录</button></button>
+</view>
+
+<view wx:else>
+  <button bindtap="read" class="enter">已读消息</button>
+  <button bindtap="unread" class="enter">未读消息</button>
+</view>
+
+</view>

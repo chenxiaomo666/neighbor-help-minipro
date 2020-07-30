@@ -1,0 +1,13 @@
+
+  <view class="head">编辑动态</view>
+
+  <textarea placeholder="输入动态内容" class="inputAreaType" bindinput="contentInput"></textarea>
+ 
+<view wx:if="{{imgPath}}">
+  <view class="picture">
+  <image src="{{imgPath}}"></image>
+</view>
+</view>
+<button bindtap="chooseImage">选择图片</button>
+
+<button bindtap="submit" style="margin-top: 20px;">提交</button>

@@ -1,1 +1,30 @@
-邻里动态
+<view class="head">邻里动态</view>
+<!-- <input placeholder="请输入物品名字搜索" class="inputType" bindinput="messInput"></input> -->
+
+
+<view class="body">
+      <view class="item" wx:for="{{messages}}" wx:key="name">
+            <view class="user-info">
+              <image src="{{item.user_info.head_img}}"></image>
+              <text class="user-name">{{item.user_info.name}}</text>
+              <text>{{item.time}}</text>
+            </view>
+            <view class="content">
+              <view class="content-body">{{item.content}}</view>
+              <view wx:if="{{item.img_url!=''}}" class="content-img">
+                <image src="{{item.img_url}}" bindtap="clickImg" data-imgUrl="{{item.img_url}}"></image>
+              </view>
+            </view>
+      </view>
+</view>
+
+<view class="release">
+  <view wx:if="{{user_id!=''}}">
+    <!-- <image bindtap='release' src="http://ch.mylwx.cn/release.png"></image> -->
+    <button bindtap="release">发布</button>
+  </view>
+  <view wx:else>
+    <!-- <image open-type="getUserInfo" bindgetuserinfo="getUserInfo" src="http://ch.mylwx.cn/login.png"></image> -->
+    <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">登录</button>
+  </view>
+</view>

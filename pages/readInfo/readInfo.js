@@ -1,4 +1,4 @@
-// linlixiang/details/details.js
+// pages/readInfo/readInfo.js
 Page({
 
   /**
@@ -8,37 +8,23 @@ Page({
 
   },
 
-  specific(e){
-    var id = e.currentTarget.dataset.id;
-    console.log(id);
-    wx.navigateTo({
-      url: '/linlixiang/specific/specific?message_id='+id,
-    })
-  },
-
-  clickImg(e){
+  toread(e){
     // console.log(e);
-    var imgUrl = e.currentTarget.dataset.imgurl;
-    wx.previewImage({
-      urls: [imgUrl], //需要预览的图片http链接列表，注意是数组
-      current: '', // 当前显示图片的http链接，默认是第一个
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
-    })
-  },
-
-  messInput(e){
-    console.log(e.detail.value);
-    this.setData({
-      content: e.detail.value
-    })
-  },
-
-  release(){
     var that = this;
-    wx.navigateTo({
-      url: '/linlixiang/release/release?type='+that.data.detailsType,
+    var message_id = e.currentTarget.dataset.message_id;
+    var index = e.currentTarget.dataset.index;
+    wx.request({
+      url: 'https://dev.mylwx.cn:2333/cxm/news/toread',
+      method: "POST",
+      data: {
+        message_id: message_id
+      },
+      success(res){
+        that.data.messages[index].is_read = 101;
+        that.setData({
+          messages: that.data.messages
+        })
+      }
     })
   },
 
@@ -46,18 +32,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var user_id = options.user_id;
+    var is_read = options.is_read;
     var that = this;
-    var detailsType = options.type;
     wx.request({
-      url: 'https://dev.mylwx.cn:2333/cxm/linlixiang/list',
-      data: {
-        share_type: detailsType
-      },
+      url: 'https://dev.mylwx.cn:2333/cxm/news/list',
       method: "GET",
+      data: {
+        user_id: user_id,
+        is_read: is_read
+      },
       success(res){
-        console.log(res.data.result)
+        console.log(res.data.result);
         that.setData({
-          detailsType: detailsType,
+          user_id: user_id,
+          is_read: is_read,
           messages: res.data.result
         })
       }

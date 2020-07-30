@@ -19,7 +19,7 @@
             <view class="content">
                   <image src="{{item.img_url}}" bindtap="clickImg" data-imgUrl="{{item.img_url}}"></image>
                   <text>{{item.mess_name}}</text>
-                  <text style="font-color: red;">详情</text>
+                  <text data-id="{{item.id}}" bindtap="specific" style="color: red;">详情</text>
             </view>
       </view>
 </view>

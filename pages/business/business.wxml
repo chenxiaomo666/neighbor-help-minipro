@@ -2,7 +2,7 @@
   <view class="head">邻里汇</view>
 
   <view style="background-color: #00FFFF;" class="business" bindtap="linlixiang" data-businessId="1">邻里享</view>
-  <view style="background-color: #00FFFF;" class="business" bindtap="enterBusiness" data-businessId="2">邻里约</view>
+  <view style="background-color: #00FFFF;" class="business" bindtap="linliyue" data-businessId="2">邻里约</view>
   <view style="background-color: #00FFFF;" class="business" bindtap="linlidai" data-businessId="3">邻里代</view>
   <view style="background-color: #00FFFF;" class="business" bindtap="enterBusiness" data-businessId="4">邻里教</view>
   <view style="background-color: #00FFFF;" class="business" bindtap="enterBusiness" data-businessId="5">邻里宠</view>

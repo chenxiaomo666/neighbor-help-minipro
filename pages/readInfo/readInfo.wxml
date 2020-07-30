@@ -1,0 +1,23 @@
+
+<view wx:if="{{is_read==100}}">
+  <view class="head">未读消息</view>
+</view>
+<view wx:else>
+  <view class="head">已读消息</view>
+</view>
+
+<view class="body">
+    <view class="item" wx:for="{{messages}}" wx:key="name" wx:for-index="index">
+        <view class="content" bindtap="toread" data-index="{{index}}" data-message_id="{{item.message_id}}">
+        <view wx:if="{{item.is_read==100}}">
+          <text style="color:red;">[未读]</text>
+          <text>{{item.news_content}}</text>
+        </view>
+          <view wx:if="{{item.is_read==101}}">
+          <text style="color:green;">[已读]</text>
+          <text>{{item.news_content}}</text>
+        </view>
+        </view>
+    </view>
+</view>
+

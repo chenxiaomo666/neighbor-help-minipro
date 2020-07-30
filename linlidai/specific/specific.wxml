@@ -39,8 +39,14 @@
   </view>
 
   <view class="bottom">
-    <view class="left">聊天</view>
-    <view class="right">接单</view>
+    <view class="left" bindtap="chat">聊天</view>
+    <block wx:if="{{is_join==0}}">
+      <view class="right" bindtap="join">接单</view>
+    </block>
+    <block wx:if="{{is_join==1}}">
+      <view class="right">已申请</view>
+    </block>
   </view>
+
 
 

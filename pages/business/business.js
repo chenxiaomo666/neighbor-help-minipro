@@ -20,6 +20,12 @@ Page({
     })
   },
 
+  linliyue(){
+    wx.navigateTo({
+      url: '/linliyue/index/index'
+    })
+  },
+
   enterBusiness(e){
     var businessId = e.currentTarget.dataset.businessid;
     wx.navigateTo({

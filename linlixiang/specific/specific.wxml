@@ -27,21 +27,31 @@
   </view>
   <view class="info">
     <text>发布名称：</text>
-    <text>{{message.one_input}}</text>
+    <text>{{message.title}}</text>
   </view>
-  <view class="info">
-    <text>发布目的：</text>
-    <text>{{message.two_input}}</text>
-  </view>
-  <view class="info">
-    <text>其他说明：</text>
-    <text>{{message.three_input}}</text>
+
+  <block wx:if="{{message.title=='物品共享'}}">
+    <view class="info">
+      <text>物品名称：</text>
+      <text>{{message.name}}</text>
+    </view>
+  </block>
+  <block wx:if="{{message.title=='车位共享'}}">
+    <view class="info">
+      <text>可共享时间段：</text>
+      <text>{{message.avail_time}}</text>
+    </view>
+  </block>
+
+  <view style="display: flex; align-items: center; margin-top:30px; margin-bottom:0px;">
+    <text>图片：</text>
+    <image style="width:50px; height:50px;" src="{{message.img_url}}"></image>
   </view>
 
   <view class="bottom">
     <view class="left" bindtap="chat">聊天</view>
     <block wx:if="{{is_join==0}}">
-      <view class="right" bindtap="join">加入</view>
+      <view class="right" bindtap="join">申请</view>
     </block>
     <block wx:if="{{is_join==1}}">
       <view class="right">已申请</view>

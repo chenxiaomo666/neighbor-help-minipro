@@ -1,6 +1,5 @@
 {
   "pages":[
-    "linliyue/index/index",
     "pages/index/index",
     "pages/news/news",
     "pages/bindInfo/bindInfo",
@@ -8,15 +7,19 @@
     "pages/releaseInfo/releaseInfo",
     "pages/home/home",
     "pages/dynamic/dynamic",
+    "pages/dyrelease/dyrelease",
     "pages/private/private",
     "pages/logs/logs",
+    "pages/readInfo/readInfo",
     "linlixiang/index/index",
     "linlixiang/details/details",
     "linlixiang/release/release",
+    "linlixiang/specific/specific",
     "linlidai/index/index",
     "linlidai/release/release",
     "linlidai/details/details",
     "linlidai/specific/specific",
+    "linliyue/index/index",
     "linliyue/release/release",
     "linliyue/details/details",
     "linliyue/specific/specific"
